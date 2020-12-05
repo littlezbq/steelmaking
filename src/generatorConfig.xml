@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<classPathEntry location="F:\jar package\mysql-connector-java-8.0.21\mysql-connector-java-8.0.21.jar" />
+	<context id="MySQLTables" targetRuntime="MyBatis3">
+    	<jdbcConnection connectionURL="jdbc:mysql://localhost:3306/steelmaking?serverTimezone=GMT%2B8&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8" 
+    				driverClass="com.mysql.cj.jdbc.Driver" 
+    				password="123456" 
+    				userId="root" />
+    	<javaModelGenerator targetPackage="model" targetProject="steelmakingSYS" >
+    		<property name="enableSubpackages" value="true"/>
+    		<property name="trimStrings" value="true"/>
+    	</javaModelGenerator>
+    	<sqlMapGenerator targetPackage="modelMappers" targetProject="steelmakingSYS">
+    		<property name="enableSubpackages" value="true"/>
+    	</sqlMapGenerator>
+    	<javaClientGenerator targetPackage="Mappers" targetProject="steelmakingSYS" type="XMLMAPPER" >
+    		<property name="enableSubPackages" value="true"/>
+    	</javaClientGenerator>
+    	<table schema="steelmaking" tableName="product_accessory" domainObjectName="ProductAccessory" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    	<table schema="steelmaking" tableName="product_parameter" domainObjectName="ProductParameter" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    	<table schema="steelmaking" tableName="product_alloy" domainObjectName="ProductAlloy" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    	<table schema="steelmaking" tableName="product_steel" domainObjectName="ProductSteel" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    	<table schema="steelmaking" tableName="product_slag" domainObjectName="ProductSlag" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    	
+    	
+  	</context>
+  	
+  	
+</generatorConfiguration>
