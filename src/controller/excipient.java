@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import daoMappersImpl.ProductParameterMapperImpl;
 import model.ProductParameter;
@@ -55,7 +56,8 @@ public class excipient {
 	
 	//查询生产数据记录操作
 	@RequestMapping("/searchsteel")
-	public String searchsteel(HttpServletRequest request) throws UnsupportedEncodingException{
+	public ModelAndView searchsteel(HttpServletRequest request) throws UnsupportedEncodingException{
+		ModelAndView modelAndView=new ModelAndView();
 		request.setCharacterEncoding("UTF-8");
 		String NAME = request.getParameter("NAME");
 		String VALUE = request.getParameter("VALUE");
@@ -64,13 +66,14 @@ public class excipient {
 		
 		ProductParameterMapperImpl productImpl = new ProductParameterMapperImpl();
 		product_list = productImpl.selectByOneCharacter(NAME, VALUE);
-		
+		modelAndView.addObject("firstlist", product_list);
 		for (int i = 0; i < product_list.size();i++) {
 			product = product_list.get(i);
 			System.out.println(product.toString());
+			
 		}
-		
-		return "searchresult";
+		modelAndView.setViewName("searchresult");
+		return modelAndView;
 	}
 	
 	//删除数据操作

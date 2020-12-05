@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
-  <title>汉中锌业</title>
+  <title>转炉炼钢</title>
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width">
@@ -20,7 +20,7 @@
 </head>
 <body>
     <div class="navbar navbar-light" style="background-color:#6495ED;" role="navigation">               
-      <div style="float:left;margin-left:10px;display:inline; "><h2 style="color:#F8F8FF;font-weight: bold;"><img alt="" src="images/hzxylogo.png" style="height:40px"></h2></div>
+      <div style="float:left;margin-left:10px;display:inline; "><h2 style="color:#F8F8FF;font-weight: bold;"><img alt="" src="images/jian.png" style="height:60px"></h2></div>
      <div style="padding-top:20px;float:right;padding-right:20px;"> <a href="javascript:void(0)" onclick="logout()" data-toggle="topjui-menubutton"  style="text-decoration:none;color:#fff;"><i class="fa fa-sign-out" ></i>注销</a></div>       
     </div>
     
@@ -38,27 +38,36 @@
             <span><img class="obscure" src="images/obscure.png" alt=""></span>
         </div>
         <div class="navBox">
-            <ul>
-                <li>
-                    <h2 class="obtain"><a href="index.jsp" style="text-decoration:none;font-size:17px;color:#F0FFF0;font-weight: bold;">生产效益测算</a></h2>
-                </li>
-                <li>
-                    <h2 class="obtain"><a style="text-decoration:none;font-size:17px;color:#F0FFF0;font-weight: bold;">数据管理</a><i></i></h2>
+            <ul>                
+                 <li>
+                    <h2 class="obtain"><a style="text-decoration:none;font-size:17px;color:#d9d919;font-weight: bold;">生产数据管理</a><i></i></h2>
                     <div class="secondary">
-                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#F0FFF0;"href="manage_row.jsp"><i class="fa fa-hand-o-right"></i>数据管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h3>
-                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#F0FFF0;"href="manage_process.jsp"><i class="fa fa-hand-o-right"></i> 工艺过程数据管理</a></h3>
-                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#F0FFF0;"href="manage_output.jsp"><i class="fa fa-hand-o-right"></i> 输出产物数据管理</a></h3>
+                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#d9d919;"href="showmaterial"><i class="fa fa-hand-o-right"></i>生产参数数据管理</a></h3>
+                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#d9d919;"href="proAlloy.jsp"><i class="fa fa-hand-o-right"></i>生产用合金数据管理</a></h3>
+                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#d9d919;"href="proAccessory.jsp"><i class="fa fa-hand-o-right"></i>生产用渣料数据管理</a></h3>
+                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#d9d919;"href="proSteel.jsp"><i class="fa fa-hand-o-right"></i>成品成分数据管理</a></h3>
+                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#d9d919;"href="proDreg.jsp"><i class="fa fa-hand-o-right"></i>炉渣成分数据管理</a></h3>
                     </div>
                 </li>
+                <li>
+                    <h2 class="obtain"><a style="text-decoration:none;font-size:17px;color:#F0FFF0;font-weight: bold;">辅助材料管理</a><i></i></h2>
+                    <div class="secondary">
+                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#F0FFF0;"href="showsteel"><i class="fa fa-hand-o-right"></i> 钢种数据管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h3>
+                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#F0FFF0;"href="alloy.jsp"><i class="fa fa-hand-o-right"></i> 合金数据管理</a></h3>
+                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#F0FFF0;"href="accessory.jsp"><i class="fa fa-hand-o-right"></i> 渣料数据管理</a></h3>
+                    </div>             
+                </li> 
                 <li>
                     <h2 class="obtain"><a style="text-decoration:none;font-size:17px;color:#F0FFF0;font-weight: bold;">数据统计分析</a><i></i></h2>
                     <div class="secondary">
-                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#F0FFF0;"href="statistics_row.jsp"><i class="fa fa-hand-o-right"></i> 原料数据统计分析&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h3>
-                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#F0FFF0;"href="statistics_process.jsp"><i class="fa fa-hand-o-right"></i> 工艺过程数据统计分析</a></h3>
-                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#F0FFF0;"href="statistics_out.jsp"><i class="fa fa-hand-o-right"></i> 输出产物数据统计分析</a></h3>
+                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#F0FFF0;"href="showstatistics"><i class="fa fa-hand-o-right"></i>成品成分数据统计分析&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h3>
+                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#F0FFF0;"href="statistics_output.jsp"><i class="fa fa-hand-o-right"></i> 输出产物数据统计分析</a></h3>
                         <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#F0FFF0;"href="statistics_frequency.jsp"><i class="fa fa-hand-o-right"></i> 生产指标频率分布&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h3>
                         <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#F0FFF0;"href="statistics_report.jsp"><i class="fa fa-hand-o-right"></i> 报表生成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h3>
                     </div>
+                </li>
+                <li>
+                    <h2 class="obtain"><a href="index.jsp" style="text-decoration:none;font-size:17px;color:#F0FFF0;font-weight: bold;">生产效益测算</a></h2>
                 </li>
                 <li>
                     <h2 class="obtain"><a style="text-decoration:none;font-size:17px;color:#F0FFF0;font-weight: bold;">冶炼数据预测</a><i></i></h2>
@@ -79,14 +88,6 @@
     </div>
 </div>
 
-
-<div id="center" data-options="region:'center',border:false" style="overflow:hidden;">
-          <ol class="breadcrumb">
-            <li><a href="showsteel">钢种成分</a><li>
-            <li><a href="showalloy">合金成分</a><li>
-             <li><a href="showdreg">渣料成分</a><li>
-          </ol>
-      </div>
 </body>
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript" src="./static/public/js/topjui.config.js"></script>

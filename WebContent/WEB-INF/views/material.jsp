@@ -23,6 +23,7 @@
     <script type="text/javascript" src="calendar/WdatePicker.js"></script>
 </head>
 <body>
+
 	<script type="text/javascript">
 		if ("${info}" != '') {
 			alert("${info}");
@@ -130,10 +131,10 @@
 	</script>
 
 	
-	
+
+<%-- 	<jsp:include page="index.jsp" /> --%>
 	<!-- 添加（录入）钢种成分面板 -->
-	<form  id="form1" method="post" name="form1"  onsubmit= "return checkitems()">
-		<div class="panel panel-info">
+	<div id="center" data-options="region:'center',border:false" style="overflow:hidden;">
 			<div class="panel-heading" style="text-align: center;">
 				<h4 style="font-weight: bolder;">
 					添加信息 <h5>带*的为必填项</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -143,7 +144,7 @@
 				</h4>
 			</div>
 			<div class="panel-body">
-
+			<form  id="form1" method="post" name="form1"  onsubmit= "return checkitems()">
 				<table class="table table-bordered" style="width: 80%; margin: auto">
 					<tr class="success">
 						<th style="text-align: center; height: 15px">生产日期（*）</th>
@@ -315,15 +316,132 @@
 							<td><button class="btn btn-primary btn-sm" type="submit" id = "submit" onclick="update()" >
 								更新<i class="fa fa-plus" style="font-size: 15px;"></i>
 							</button></td>
-
 						</tr>
 					</tbody>
 				</table>
-			</div>
+				</form>
+	</div>
+	<div class="panel-body">
+				
+				<!-- 查询操作 -->
+	<form action="searchsteel" method="post" name="form2" id="form2">
+		<div>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			属性选择：<select id = "NAME" name="NAME"
+				class="selectpicker show-tick form-control"
+				style="font-size: 15px; text-align: center; display: inline; vertical-align: middle; width: 160px; height: 30px; border: none">
+				<option value="class_no">按班次查询</option>
+				<option value="furnace_num">按炉次查询</option>
+				<option value="produce_date">按生产日期查询</option>
+			<!--<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option> -->
+
+			</select> 输入关键字：<input type="text"
+				style="width: 50px; height: 25px; font-size: 13px; border: #CCCCCC 1px solid;"
+				id="VALUE" name="VALUE">
+			&nbsp;&nbsp;
+			<button class="btn btn-success btn-sm" type="submit">
+				<i class="fa fa-search" aria-hidden="true" ></i>查询
+			</button>
 		</div>
 	</form>
 	
-	<!-- 添加和更新分辨跳转的函数 -->
+	
+	<!-- 删除操作 -->
+	<!-- <form action="deleteMaterials" method="post" name="form3" id="form3">
+		<div>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			属性选择：<select id = "NAME" name="NAME"
+				class="selectpicker show-tick form-control"
+				style="font-size: 15px; text-align: center; display: inline; vertical-align: middle; width: 160px; height: 30px; border: none">
+				<option value="class_no">按班次删除</option>
+				<option value="furnace_num">按炉次删除</option>
+				<option value="produce_date">按生产日期删除</option>
+			<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+
+			</select> 输入关键字：<input type="text"
+				style="width: 50px; height: 25px; font-size: 13px; border: #CCCCCC 1px solid;"
+				id="VALUE" name="VALUE">
+			&nbsp;&nbsp;
+			<button class="btn btn-success btn-sm" type="submit">
+				<i class="fa fa-search" aria-hidden="true" ></i>删除
+			</button>
+		</div>
+	</form> -->
+	
+			<table class="table table-bordered"
+				style="border: 1px #CCCCCC solid; width: 80%; margin: auto">
+				<thead>
+					<tr class="success">
+						<th colspan="56" style="text-align: center; height: 20px">钢种类别成分表
+						</th>
+					</tr>
+					<tr>
+						<th colspan="2" bgcolor="FFD700" style="text-align: center;">操作<br>方法
+						</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">班别</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">炉次</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">炉龄</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">C(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">Si(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">Mn(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">P(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">S(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">Al(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">AlS(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">Cu(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">Ni(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">Cr(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">V(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">Ti(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">Nb(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">N(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">O(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">Mo(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">W(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">As(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">B(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">Sn(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">Sb(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">An(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">Co(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">Pb(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">Bi(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">Ca(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">Ceq(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">SiO2(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">Al2O3(%)</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">A类<br>个数</th>
+					    <th bgcolor="ADD8E6" style="text-align: center;">A类<br>尺寸</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">D类<br>个数</th>
+						<th bgcolor="ADD8E6" style="text-align: center;">D类<br>尺寸</th>
+                        <th bgcolor="ADD8E6" style="text-align: center;">备注</th>
+  				</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+
+</div>
+<!-- 添加和更新分辨跳转的函数 -->
 	<script type="text/javascript">
 		function update(){
 			form1.action = "updateMaterial";
@@ -385,68 +503,6 @@
 	</script> -->
 	
 	
-	<!-- 查询操作 -->
-	<form action="searchsteel" method="post" name="form2" id="form2">
-		<div>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			属性选择：<select id = "NAME" name="NAME"
-				class="selectpicker show-tick form-control"
-				style="font-size: 15px; text-align: center; display: inline; vertical-align: middle; width: 160px; height: 30px; border: none">
-				<option value="class_no">按班次查询</option>
-				<option value="furnace_num">按炉次查询</option>
-				<option value="produce_date">按生产日期查询</option>
-			<!--<option value="4">4</option>
-				<option value="5">5</option>
-				<option value="6">6</option>
-				<option value="7">7</option>
-				<option value="8">8</option>
-				<option value="9">9</option>
-				<option value="10">10</option>
-				<option value="11">11</option>
-				<option value="12">12</option> -->
-
-			</select> 输入关键字：<input type="text"
-				style="width: 50px; height: 25px; font-size: 13px; border: #CCCCCC 1px solid;"
-				id="VALUE" name="VALUE">
-			&nbsp;&nbsp;
-			<button class="btn btn-success btn-sm" type="submit">
-				<i class="fa fa-search" aria-hidden="true" ></i>查询
-			</button>
-		</div>
-	</form>
-	
-	
-	<!-- 删除操作 -->
-	<form action="deleteMaterials" method="post" name="form3" id="form3">
-		<div>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			属性选择：<select id = "NAME" name="NAME"
-				class="selectpicker show-tick form-control"
-				style="font-size: 15px; text-align: center; display: inline; vertical-align: middle; width: 160px; height: 30px; border: none">
-				<option value="class_no">按班次删除</option>
-				<option value="furnace_num">按炉次删除</option>
-				<option value="produce_date">按生产日期删除</option>
-			<!--<option value="4">4</option>
-				<option value="5">5</option>
-				<option value="6">6</option>
-				<option value="7">7</option>
-				<option value="8">8</option>
-				<option value="9">9</option>
-				<option value="10">10</option>
-				<option value="11">11</option>
-				<option value="12">12</option> -->
-
-			</select> 输入关键字：<input type="text"
-				style="width: 50px; height: 25px; font-size: 13px; border: #CCCCCC 1px solid;"
-				id="VALUE" name="VALUE">
-			&nbsp;&nbsp;
-			<button class="btn btn-success btn-sm" type="submit">
-				<i class="fa fa-search" aria-hidden="true" ></i>删除
-			</button>
-		</div>
-	</form>
 	
 	
 	
@@ -473,65 +529,6 @@
 		}
 	</script> -->
 	
-	
-	<div class="table-responsive">
-			<table class="table table-bordered"
-				style="border: 1px #CCCCCC solid; width: 80%; margin: auto">
-				<thead>
-					<tr class="success">
-						<th colspan="56" style="text-align: center; height: 20px">钢种类别成分表
-						</th>
-					</tr>
-					<tr>
-						<th colspan="2" bgcolor="FFD700" style="text-align: center;">操作<br>方法
-						</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">班别</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">炉次</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">炉龄</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">C(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">Si(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">Mn(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">P(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">S(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">Al(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">AlS(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">Cu(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">Ni(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">Cr(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">V(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">Ti(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">Nb(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">N(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">O(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">Mo(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">W(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">As(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">B(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">Sn(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">Sb(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">An(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">Co(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">Pb(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">Bi(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">Ca(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">Ceq(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">SiO2(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">Al2O3(%)</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">A类<br>个数</th>
-					    <th bgcolor="ADD8E6" style="text-align: center;">A类<br>尺寸</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">D类<br>个数</th>
-						<th bgcolor="ADD8E6" style="text-align: center;">D类<br>尺寸</th>
-                        <th bgcolor="ADD8E6" style="text-align: center;">备注</th>
-  				</tr>
-				</thead>
-				<tbody>
-				</tbody>
-
-
-			</table>
-		</div>
-	
-
 	<script type="text/javascript">
   $(document).ready(function() {
     $('#hls_date').daterangepicker({ singleDatePicker: true }, function(start, end, label) {

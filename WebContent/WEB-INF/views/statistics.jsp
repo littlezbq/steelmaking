@@ -48,6 +48,7 @@ ul li:hover{
 </style>
 </head>
 <body>
+<jsp:include page="index.jsp" />
 <h1>Demo01</h1>
 <!-- <ul> -->
 <!-- <!-- 点击后触发表格的按钮 --> 
