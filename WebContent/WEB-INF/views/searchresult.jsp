@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%><%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <!--显示查询结果页面：该页面用于显示生产参数数据条件查询的结果  -->
@@ -391,6 +392,8 @@
 			</button>
 		</div>
 	</form> -->
+	
+	
 	<!-- 显示查询结果 -->
 	<div class="panel-body" style="width=200px;height=400px;overflow-x:scroll;overflow-y:scroll">
 			<table class="table table-bordered"
@@ -398,7 +401,7 @@
 				<!-- 查询结果表头 -->
 				<thead>
 					<tr class="success">
-						<th colspan="56" style="text-align: center; height: 20px">钢种类别成分表
+						<th colspan="56" style="text-align: center; height: 20px">生产参数数据表
 						</th>
 					</tr>
 					<tr>
@@ -462,9 +465,9 @@
 									<i class="fa fa-trash-o box" style="color: Tomato"></i>
 							</a>
 							</td>
-							<td bgcolor="F8F8FF" style="text-align: center;height:20px;width: 100px;border: #CCCCCC 1px solid;">
+							<td bgcolor="F8F8FF" style="text-align: center;height:20px;border: #CCCCCC 1px solid;">
 							<font style="vertical-align: inherit;"> <font
-									style="vertical-align: inherit;"> <c:out
+									style="vertical-align: inherit;"> <fmt:formatDate type="date" pattern="y-M-d"
 											value='${ProductParameter.produceDate}' />&nbsp;
 								</font>
 							</font></td>
@@ -715,7 +718,7 @@
 		</div>
 </div>
 </div>
-<!-- 添加和更新分辨跳转的函数 -->
+<!-- 添加和更新分别跳转的函数 -->
 	<script type="text/javascript">
 		function update(){
 			form1.action = "updateMaterial";
