@@ -19,6 +19,9 @@
 <link type="text/css" href="./topjui/themes/default/topjui.blue.css" rel="stylesheet" id="dynamicTheme"/>
 </head>
 <script>
+funtion 1(){
+	window.location.href="showmaterial";
+}
 </script>
 <body>
     <div class="navbar navbar-light" style="background-color:#6495ED;" role="navigation">               
@@ -44,7 +47,7 @@
                  <li>
                     <h2 class="obtain"><a style="text-decoration:none;font-size:17px;color:#d9d919;font-weight: bold;">生产数据管理</a><i></i></h2>
                     <div class="secondary">
-                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#d9d919;"href="123.jsp"><i class="fa fa-hand-o-right"></i>生产参数数据管理</a></h3>
+                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#d9d919;"href="showmaterial"><i class="fa fa-hand-o-right"></i>生产参数数据管理</a></h3>
                         <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#d9d919;"href="proAlloy.jsp"><i class="fa fa-hand-o-right"></i>生产用合金数据管理</a></h3>
                         <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#d9d919;"href="proAccessory.jsp"><i class="fa fa-hand-o-right"></i>生产用渣料数据管理</a></h3>
                         <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#d9d919;"href="proSteel.jsp"><i class="fa fa-hand-o-right"></i>成品成分数据管理</a></h3>
@@ -98,6 +101,41 @@
              <li><a href="showdreg">渣料成分</a><li>
           </ol>
       </div>
+      <form action="showmaterial">
+      <input type = "submit" value ="添加生产数据"style="background:#F0F0F0;width:200px;height:200px;font-size:20px;">
+      
+ 	<form action="searchsteel" method="post" name="form2" id="form2">
+ 	<br>
+<!--  	<br>
+		<div>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			属性选择：<select id = "NAME" name="NAME"
+				class="selectpicker show-tick form-control"
+				style="font-size: 15px; text-align: center; display: inline; vertical-align: middle; width: 160px; height: 30px; border: none">
+				<option value="class_no">按班次查询</option>
+				<option value="furnace_num">按炉次查询</option>
+				<option value="produce_date">按生产日期查询</option>
+			<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+
+			</select> 输入关键字：<input type="text"
+				style="width: 50px; height: 25px; font-size: 13px; border: #CCCCCC 1px solid;"
+				id="VALUE" name="VALUE">
+			&nbsp;&nbsp;
+			<button class="btn btn-success btn-sm" type="submit">
+				<i class="fa fa-search" aria-hidden="true" ></i>查询
+			</button>
+		</div>
+	</form>
+	 -->
 </body>
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript" src="./static/public/js/topjui.config.js"></script>

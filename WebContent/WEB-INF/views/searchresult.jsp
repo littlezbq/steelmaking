@@ -139,7 +139,8 @@
 
 	
 
-<%-- 	<jsp:include page="index.jsp" /> --%>
+	
+<%-- <jsp:include page="index.jsp" /> --%>
 	<!-- 添加（录入）钢种成分面板 -->
 	<div id="center" data-options="region:'center',border:false" style="overflow:hidden;">
 			<div class="panel-heading" style="text-align: center;">
@@ -452,7 +453,7 @@
 						<tr>
 							<td bgcolor="E6E6FA"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
-								<a href="edit_granules.jsp?gran_id=9&amp;gran_date=2018-03-09">
+								<a href="updateTest">
 									<!-- data-toggle="topjui-menubutton"   data-toggle="topjui-menubutton" -->
 									<i class="fa fa-pencil box" style="color: SteelBlue"></i>
 							</a>
