@@ -3,22 +3,29 @@
 	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<!-- 加载jdbc.properties配置文件，以后修改数据库信息时就从其中进行修改 -->
+	<properties resource="jdbc.properties"></properties>
+
 	<settings>
     <!--  开启自动驼峰命名规则映射  -->
     	<setting name="mapUnderscoreToCamelCase" value="true" />
 	</settings>
+	
+	
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC"/>
 			<dataSource type="POOLED">
 			<!-- 配置数据库信息 -->
-				<property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-				<property name="url" value="jdbc:mysql://localhost:3306/steelmaking?serverTimezone=GMT%2B8&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8"/>
-				<property name="username" value="root"/>
-				<property name="password" value="123456"/>
+				<property name="driver" value="${driver}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${username}"/>
+				<property name="password" value="${password}"/>
+				
 			</dataSource>
 		</environment>
 	</environments>
+	
 	<mappers>
 		<!-- 加载配置文件 -->
 		<mapper resource="modelMappers/ProductAccessoryMapper.xml"/>

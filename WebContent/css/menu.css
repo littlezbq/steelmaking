@@ -41,12 +41,8 @@
   width: 2.5rem;
   height: 100%;
   background-color: #363a45;
-  padding-bottom: 0.1rem;
+
   box-sizing: border-box;
-  -webkit-transition: all 0.8s ease;
-  -moz-transition: all 0.8s ease;
-  -o-transition: all 0.8s ease;
-  -ms-transition: all 0.8s ease;
 }
 #menu #open .navH {
   height: 0.6rem;
@@ -86,9 +82,15 @@
   background-color: #393c4a;
   cursor: pointer;
   margin-bottom: 14px;
+  height:auto;
 }
 #menu #open .navBox ul li .obtain {
-	background-color: #3889D4; 
+	background-color: #3889D4;
+	height:auto; 
+}
+#menu #open .navBox ul li .obFocus {
+	background-color: #3889D4;
+	height:auto; 
 }
 #menu #open .navBox ul li .obtain:hover {
 	background-color: #3D8332; 

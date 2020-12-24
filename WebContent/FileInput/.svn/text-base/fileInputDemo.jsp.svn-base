@@ -28,15 +28,15 @@
 <body>
 
 <%-- <form action="${pageContext.request.contextPath}/servlet/UploadHandleServlet" enctype="multipart/form-data" method="post">
-         上传用户：<input type="text" name="username"><br/>
-         上传文件1：<input type="file" name="file1"><br/>
-        上传文件2：<input type="file" name="file2"><br/>
-	<input type="submit" value="提交">
+         涓婁紶鐢ㄦ埛锛�<input type="text" name="username"><br/>
+         涓婁紶鏂囦欢1锛�<input type="file" name="file1"><br/>
+        婁紶鏂囦欢2锛�<input type="file" name="file2"><br/>
+	<input type="submit" value="鎻愪氦">
 </form> --%>
 	<div class="htmleaf-container">
 		<div class="container kv-main">
             <!-- <div class="page-header">
-            <h2>单张上传 <small></h2>
+            <h2>鍗曞紶涓婁紶 <small></h2>
             </div> -->
             <!-- <form enctype="multipart/form-data" id="uploadForm"  method = "post"> -->
                 <input id="fileUpload" class="file" type="file" name="fileUpload"  multiple  data-show-preview="true">
@@ -46,18 +46,18 @@
 	
     <script>
 	    $("#fileUpload").fileinput({
-	        language : "zh",//设置语言
-	        uploadUrl: "${pageContext.request.contextPath}/fileUpload/UploadHandleServlet",//上传地址
-	        uploadAsync: true,//同步还是异步
-	        showCaption:false,//是否显示标题
-	        showUpload: true,//是否显示上传按钮
-	        browseClass: "btn btn-primary", //按钮样式 
-	        allowedFileExtensions : ['jpg', 'png','gif'],//接收的文件后缀
-	        allowedFileTypes: ['image', 'video', 'flash'],//接收的文件类型['image', 'html', 'text', 'video', 'audio', 'flash','object']
-	        maxFileCount: 6,//最大上传文件数限制
+	        language : "zh",//璁剧疆璇█
+	        uploadUrl: "${pageContext.request.contextPath}/fileUpload/UploadHandleServlet",//涓婁紶鍦板潃
+	        uploadAsync: true,//鍚屾杩樻槸寮傛
+	        showCaption:false,//鏄惁鏄剧ず鏍囬
+	        showUpload: true,//鏄惁鏄剧ず涓婁紶鎸夐挳
+	        browseClass: "btn btn-primary", //鎸夐挳鏍峰紡 
+	        allowedFileExtensions : ['jpg', 'png','gif'],//鎺ユ敹鐨勬枃浠跺悗缂�
+	        allowedFileTypes: ['image', 'video', 'flash'],//鎺ユ敹鐨勬枃浠剁被鍨媅'image', 'html', 'text', 'video', 'audio', 'flash','object']
+	        maxFileCount: 6,//鏈�澶т笂浼犳枃浠舵暟闄愬埗
 	        overwriteInitial: false,
 	        maxFileSize: 1000, 
-	        msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+	        msgFilesTooMany: "閫夋嫨涓婁紶鐨勬枃浠舵暟閲�({n}) 瓒呰繃鍏佽鐨勬渶澶ф暟鍊納m}锛�",
 	        previewFileIcon: '<i class="glyphicon glyphicon-file"></i>', 
 	        enctype: 'multipart/form-data',
 	        /* allowedPreviewTypes: null, */

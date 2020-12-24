@@ -382,3 +382,248 @@ DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Setting autocomm
 DEBUG main Mappers.ProductParameterMapper.selectByPrimaryKey - ==>  Preparing: select produce_date, furnace_num, class_no, furnace_no, furnace_age, steel_name, oxygun1, oxygun2, oxymode, iron_c, iron_si, iron_mn, iron_p, iron_s, iron_temperature, outlet_age, iron_weight, resteel_weight1, resteel_weight2, steel_weight, pro_oxytime1, pro_oxyval, turn_num, turn_temperature1, pro_oxytime2, turn_temperature2, pro_nval, slag_time, slag_weight, turn_c, turn_s, turn_p, turn_mn, steel_dir, steel_fe, steel_remark from product_parameter where ? = ?
 DEBUG main Mappers.ProductParameterMapper.selectByPrimaryKey - ==> Parameters: produceDate(String), 2020-11-06(String)
 DEBUG main Mappers.ProductParameterMapper.selectByPrimaryKey - <==      Total: 0
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Opening JDBC Connection
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - Created connection 332699949.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Setting autocommit to false on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@13d4992d]
+DEBUG main Mappers.ProductParameterMapper.selectByTime - ==>  Preparing: select produce_date, furnace_num, class_no, furnace_no, furnace_age, steel_name, oxygun1, oxygun2, oxymode, iron_c, iron_si, iron_mn, iron_p, iron_s, iron_temperature, outlet_age, iron_weight, resteel_weight1, resteel_weight2, steel_weight, pro_oxytime1, pro_oxyval, turn_num, turn_temperature1, pro_oxytime2, turn_temperature2, pro_nval, slag_time, slag_weight, turn_c, turn_s, turn_p, turn_mn, steel_dir, steel_fe, steel_remark from product_parameter where produce_date in (select produce_date from product_parameter where product_date between ? and ?)
+DEBUG main Mappers.ProductParameterMapper.selectByTime - ==> Parameters: 2020-01-01 00:00:00.0(Timestamp), 2020-03-05 00:00:00.0(Timestamp)
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Opening JDBC Connection
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - Created connection 332699949.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Setting autocommit to false on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@13d4992d]
+DEBUG main Mappers.ProductParameterMapper.selectByTime - ==>  Preparing: select produce_date, furnace_num, class_no, furnace_no, furnace_age, steel_name, oxygun1, oxygun2, oxymode, iron_c, iron_si, iron_mn, iron_p, iron_s, iron_temperature, outlet_age, iron_weight, resteel_weight1, resteel_weight2, steel_weight, pro_oxytime1, pro_oxyval, turn_num, turn_temperature1, pro_oxytime2, turn_temperature2, pro_nval, slag_time, slag_weight, turn_c, turn_s, turn_p, turn_mn, steel_dir, steel_fe, steel_remark from product_parameter where produce_date in (select produce_date from product_parameter where produce_date between ? and ?)
+DEBUG main Mappers.ProductParameterMapper.selectByTime - ==> Parameters: 2020-01-01 00:00:00.0(Timestamp), 2020-03-05 00:00:00.0(Timestamp)
+DEBUG main Mappers.ProductParameterMapper.selectByTime - <==      Total: 860
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Resetting autocommit to true on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@13d4992d]
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Closing JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@13d4992d]
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - Returned connection 332699949 to pool.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Opening JDBC Connection
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - Created connection 660339123.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Setting autocommit to false on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@275bf9b3]
+DEBUG main Mappers.ProductParameterMapper.selectByStellName - ==>  Preparing: select produce_date, furnace_num, class_no, furnace_no, furnace_age, steel_name, oxygun1, oxygun2, oxymode, iron_c, iron_si, iron_mn, iron_p, iron_s, iron_temperature, outlet_age, iron_weight, resteel_weight1, resteel_weight2, steel_weight, pro_oxytime1, pro_oxyval, turn_num, turn_temperature1, pro_oxytime2, turn_temperature2, pro_nval, slag_time, slag_weight, turn_c, turn_s, turn_p, turn_mn, steel_dir, steel_fe, steel_remark from product_parameter where steel_name=?
+DEBUG main Mappers.ProductParameterMapper.selectByStellName - ==> Parameters: Q195-Y(String)
+DEBUG main Mappers.ProductParameterMapper.selectByStellName - <==      Total: 250
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Resetting autocommit to true on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@275bf9b3]
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Closing JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@275bf9b3]
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - Returned connection 660339123 to pool.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Opening JDBC Connection
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - Created connection 660339123.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Setting autocommit to false on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@275bf9b3]
+DEBUG main Mappers.ProductParameterMapper.selectByStellName - ==>  Preparing: select produce_date, furnace_num, class_no, furnace_no, furnace_age, steel_name, oxygun1, oxygun2, oxymode, iron_c, iron_si, iron_mn, iron_p, iron_s, iron_temperature, outlet_age, iron_weight, resteel_weight1, resteel_weight2, steel_weight, pro_oxytime1, pro_oxyval, turn_num, turn_temperature1, pro_oxytime2, turn_temperature2, pro_nval, slag_time, slag_weight, turn_c, turn_s, turn_p, turn_mn, steel_dir, steel_fe, steel_remark from product_parameter where steel_name=?
+DEBUG main Mappers.ProductParameterMapper.selectByStellName - ==> Parameters: Q195-Y(String)
+DEBUG main Mappers.ProductParameterMapper.selectByStellName - <==      Total: 250
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Resetting autocommit to true on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@275bf9b3]
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Closing JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@275bf9b3]
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - Returned connection 660339123 to pool.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Opening JDBC Connection
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - Created connection 332699949.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Setting autocommit to false on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@13d4992d]
+DEBUG main Mappers.ProductParameterMapper.selectByTime - ==>  Preparing: select produce_date, furnace_num, class_no, furnace_no, furnace_age, steel_name, oxygun1, oxygun2, oxymode, iron_c, iron_si, iron_mn, iron_p, iron_s, iron_temperature, outlet_age, iron_weight, resteel_weight1, resteel_weight2, steel_weight, pro_oxytime1, pro_oxyval, turn_num, turn_temperature1, pro_oxytime2, turn_temperature2, pro_nval, slag_time, slag_weight, turn_c, turn_s, turn_p, turn_mn, steel_dir, steel_fe, steel_remark from product_parameter where produceDate in (select produceDate from product_parameter where produceDate between ? and ?)
+DEBUG main Mappers.ProductParameterMapper.selectByTime - ==> Parameters: 2020-01-01 00:00:00.0(Timestamp), 2020-03-05 00:00:00.0(Timestamp)
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Resetting autocommit to true on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@13d4992d]
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Closing JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@13d4992d]
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - Returned connection 332699949 to pool.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Opening JDBC Connection
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - Created connection 332699949.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Setting autocommit to false on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@13d4992d]
+DEBUG main Mappers.ProductParameterMapper.selectByTime - ==>  Preparing: select produce_date, furnace_num, class_no, furnace_no, furnace_age, steel_name, oxygun1, oxygun2, oxymode, iron_c, iron_si, iron_mn, iron_p, iron_s, iron_temperature, outlet_age, iron_weight, resteel_weight1, resteel_weight2, steel_weight, pro_oxytime1, pro_oxyval, turn_num, turn_temperature1, pro_oxytime2, turn_temperature2, pro_nval, slag_time, slag_weight, turn_c, turn_s, turn_p, turn_mn, steel_dir, steel_fe, steel_remark from product_parameter where produce_date in (select produce_date from product_parameter where produce_date between ? and ?)
+DEBUG main Mappers.ProductParameterMapper.selectByTime - ==> Parameters: 2020-01-01 00:00:00.0(Timestamp), 2020-03-05 00:00:00.0(Timestamp)
+DEBUG main Mappers.ProductParameterMapper.selectByTime - <==      Total: 860
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Resetting autocommit to true on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@13d4992d]
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Closing JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@13d4992d]
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - Returned connection 332699949 to pool.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Opening JDBC Connection
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Opening JDBC Connection
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Opening JDBC Connection
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - Created connection 332699949.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Setting autocommit to false on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@13d4992d]
+DEBUG main Mappers.ProductParameterMapper.selectByTime - ==>  Preparing: select produce_date, furnace_num, class_no, furnace_no, furnace_age, steel_name, oxygun1, oxygun2, oxymode, iron_c, iron_si, iron_mn, iron_p, iron_s, iron_temperature, outlet_age, iron_weight, resteel_weight1, resteel_weight2, steel_weight, pro_oxytime1, pro_oxyval, turn_num, turn_temperature1, pro_oxytime2, turn_temperature2, pro_nval, slag_time, slag_weight, turn_c, turn_s, turn_p, turn_mn, steel_dir, steel_fe, steel_remark from product_parameter where produce_date in (select produce_date from product_parameter where produce_date between ? and ?)
+DEBUG main Mappers.ProductParameterMapper.selectByTime - ==> Parameters: 2020-01-01 00:00:00.0(Timestamp), 2020-03-05 00:00:00.0(Timestamp)
+DEBUG main Mappers.ProductParameterMapper.selectByTime - <==      Total: 860
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Resetting autocommit to true on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@13d4992d]
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Closing JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@13d4992d]
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - Returned connection 332699949 to pool.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Opening JDBC Connection
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - Created connection 332699949.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Setting autocommit to false on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@13d4992d]
+DEBUG main Mappers.ProductParameterMapper.selectByTime - ==>  Preparing: select produce_date, furnace_num, class_no, furnace_no, furnace_age, steel_name, oxygun1, oxygun2, oxymode, iron_c, iron_si, iron_mn, iron_p, iron_s, iron_temperature, outlet_age, iron_weight, resteel_weight1, resteel_weight2, steel_weight, pro_oxytime1, pro_oxyval, turn_num, turn_temperature1, pro_oxytime2, turn_temperature2, pro_nval, slag_time, slag_weight, turn_c, turn_s, turn_p, turn_mn, steel_dir, steel_fe, steel_remark from product_parameter where produce_date in (select produce_date from product_parameter where produce_date between ? and ?)
+DEBUG main Mappers.ProductParameterMapper.selectByTime - ==> Parameters: 2020-01-01 00:00:00.0(Timestamp), 2020-03-05 00:00:00.0(Timestamp)
+DEBUG main Mappers.ProductParameterMapper.selectByTime - <==      Total: 860
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Resetting autocommit to true on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@13d4992d]
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Closing JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@13d4992d]
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - Returned connection 332699949 to pool.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Opening JDBC Connection
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - Created connection 473153915.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Setting autocommit to false on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@1c33c17b]
+DEBUG main Mappers.ProductParameterMapper.selectByTime - ==>  Preparing: select produce_date, furnace_num, class_no, furnace_no, furnace_age, steel_name, oxygun1, oxygun2, oxymode, iron_c, iron_si, iron_mn, iron_p, iron_s, iron_temperature, outlet_age, iron_weight, resteel_weight1, resteel_weight2, steel_weight, pro_oxytime1, pro_oxyval, turn_num, turn_temperature1, pro_oxytime2, turn_temperature2, pro_nval, slag_time, slag_weight, turn_c, turn_s, turn_p, turn_mn, steel_dir, steel_fe, steel_remark from product_parameter where produce_date in (select produce_date from product_parameter where produce_date between ? and ?)
+DEBUG main Mappers.ProductParameterMapper.selectByTime - ==> Parameters: 2020-01-01 00:00:00.0(Timestamp), 2020-03-05 00:00:00.0(Timestamp)
+DEBUG main Mappers.ProductParameterMapper.selectByTime - <==      Total: 860
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Resetting autocommit to true on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@1c33c17b]
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Closing JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@1c33c17b]
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - Returned connection 473153915 to pool.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Opening JDBC Connection
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - Created connection 332699949.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Setting autocommit to false on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@13d4992d]
+DEBUG main Mappers.ProductParameterMapper.selectByTime - ==>  Preparing: select produce_date, furnace_num, class_no, furnace_no, furnace_age, steel_name, oxygun1, oxygun2, oxymode, iron_c, iron_si, iron_mn, iron_p, iron_s, iron_temperature, outlet_age, iron_weight, resteel_weight1, resteel_weight2, steel_weight, pro_oxytime1, pro_oxyval, turn_num, turn_temperature1, pro_oxytime2, turn_temperature2, pro_nval, slag_time, slag_weight, turn_c, turn_s, turn_p, turn_mn, steel_dir, steel_fe, steel_remark from product_parameter where produce_date in (select produce_date from product_parameter where produce_date between ? and ?)
+DEBUG main Mappers.ProductParameterMapper.selectByTime - ==> Parameters: 2020-01-01 00:00:00.0(Timestamp), 2020-03-05 00:00:00.0(Timestamp)
+DEBUG main Mappers.ProductParameterMapper.selectByTime - <==      Total: 860
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Resetting autocommit to true on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@13d4992d]
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Closing JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@13d4992d]
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - Returned connection 332699949 to pool.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Opening JDBC Connection
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - Created connection 332699949.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Setting autocommit to false on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@13d4992d]
+DEBUG main Mappers.ProductParameterMapper.selectByTime - ==>  Preparing: select produce_date, furnace_num, class_no, furnace_no, furnace_age, steel_name, oxygun1, oxygun2, oxymode, iron_c, iron_si, iron_mn, iron_p, iron_s, iron_temperature, outlet_age, iron_weight, resteel_weight1, resteel_weight2, steel_weight, pro_oxytime1, pro_oxyval, turn_num, turn_temperature1, pro_oxytime2, turn_temperature2, pro_nval, slag_time, slag_weight, turn_c, turn_s, turn_p, turn_mn, steel_dir, steel_fe, steel_remark from product_parameter where produce_date in (select produce_date from product_parameter where produce_date between ? and ?)
+DEBUG main Mappers.ProductParameterMapper.selectByTime - ==> Parameters: 2020-01-01 00:00:00.0(Timestamp), 2020-03-05 00:00:00.0(Timestamp)
+DEBUG main Mappers.ProductParameterMapper.selectByTime - <==      Total: 860
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Resetting autocommit to true on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@13d4992d]
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Closing JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@13d4992d]
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - Returned connection 332699949 to pool.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Opening JDBC Connection
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - Created connection 1932332324.
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Setting autocommit to false on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@732d0d24]
+DEBUG main Mappers.ProductParameterMapper.selectByTime - ==>  Preparing: select produce_date, furnace_num, class_no, furnace_no, furnace_age, steel_name, oxygun1, oxygun2, oxymode, iron_c, iron_si, iron_mn, iron_p, iron_s, iron_temperature, outlet_age, iron_weight, resteel_weight1, resteel_weight2, steel_weight, pro_oxytime1, pro_oxyval, turn_num, turn_temperature1, pro_oxytime2, turn_temperature2, pro_nval, slag_time, slag_weight, turn_c, turn_s, turn_p, turn_mn, steel_dir, steel_fe, steel_remark from product_parameter where produce_date in (select produce_date from product_parameter where produce_date between ? and ?)
+DEBUG main Mappers.ProductParameterMapper.selectByTime - ==> Parameters: 2020-01-01 00:00:00.0(Timestamp), 2020-03-05 00:00:00.0(Timestamp)
+DEBUG main Mappers.ProductParameterMapper.selectByTime - <==      Total: 860
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Resetting autocommit to true on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@732d0d24]
+DEBUG main org.apache.ibatis.transaction.jdbc.JdbcTransaction - Closing JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@732d0d24]
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - Returned connection 1932332324 to pool.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+DEBUG main org.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.

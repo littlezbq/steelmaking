@@ -18,6 +18,8 @@
 <link type="text/css" href="./topjui/css/topjui.core.min.css" rel="stylesheet">
 <link type="text/css" href="./topjui/themes/default/topjui.blue.css" rel="stylesheet" id="dynamicTheme"/>
 </head>
+<script>
+</script>
 <body>
     <div class="navbar navbar-light" style="background-color:#6495ED;" role="navigation">               
       <div style="float:left;margin-left:10px;display:inline; "><h2 style="color:#F8F8FF;font-weight: bold;"><img alt="" src="images/jian.png" style="height:60px"></h2></div>
@@ -42,7 +44,7 @@
                  <li>
                     <h2 class="obtain"><a style="text-decoration:none;font-size:17px;color:#d9d919;font-weight: bold;">生产数据管理</a><i></i></h2>
                     <div class="secondary">
-                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#d9d919;"href="showmaterial"><i class="fa fa-hand-o-right"></i>生产参数数据管理</a></h3>
+                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#d9d919;"href="manageProducePara"><i class="fa fa-hand-o-right"></i>生产参数数据管理</a></h3>
                         <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#d9d919;"href="proAlloy.jsp"><i class="fa fa-hand-o-right"></i>生产用合金数据管理</a></h3>
                         <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#d9d919;"href="proAccessory.jsp"><i class="fa fa-hand-o-right"></i>生产用渣料数据管理</a></h3>
                         <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#d9d919;"href="proSteel.jsp"><i class="fa fa-hand-o-right"></i>成品成分数据管理</a></h3>
@@ -52,7 +54,7 @@
                 <li>
                     <h2 class="obtain"><a style="text-decoration:none;font-size:17px;color:#F0FFF0;font-weight: bold;">辅助材料管理</a><i></i></h2>
                     <div class="secondary">
-                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#F0FFF0;"href="showsteel"><i class="fa fa-hand-o-right"></i> 钢种数据管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h3>
+                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#F0FFF0;"href="manageSteelPara"><i class="fa fa-hand-o-right"></i> 钢种数据管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h3>
                         <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#F0FFF0;"href="alloy.jsp"><i class="fa fa-hand-o-right"></i> 合金数据管理</a></h3>
                         <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#F0FFF0;"href="accessory.jsp"><i class="fa fa-hand-o-right"></i> 渣料数据管理</a></h3>
                     </div>             
@@ -72,8 +74,8 @@
                 <li>
                     <h2 class="obtain"><a style="text-decoration:none;font-size:17px;color:#F0FFF0;font-weight: bold;">冶炼数据预测</a><i></i></h2>
                     <div class="secondary">
-                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#F0FFF0;"href="predict_bottom.jsp"><i class="fa fa-hand-o-right"></i> 底吹炉数据预测</a></h3>
-                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#F0FFF0;"href="predict_reduction.jsp"><i class="fa fa-hand-o-right"></i> 还原炉数据预测</a></h3>
+                        <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#F0FFF0;"href="predictSteel"><i class="fa fa-hand-o-right"></i> 数据预测</a></h3>
+<!--                         <h3><a style="text-decoration:none;font-size:15px;;font-weight: bold;color:#F0FFF0;"href="predict_reduction.jsp"><i class="fa fa-hand-o-right"></i> 还原炉数据预测</a></h3> -->
                     </div>
                 </li>
                 <li>
@@ -88,6 +90,14 @@
     </div>
 </div>
 
+
+<div id="center" data-options="region:'center',border:false" style="overflow:hidden;">
+          <ol class="breadcrumb">
+            <li><a href="showsteel">钢种成分</a><li>
+            <li><a href="showalloy">合金成分</a><li>
+             <li><a href="showdreg">渣料成分</a><li>
+          </ol>
+      </div>
 </body>
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript" src="./static/public/js/topjui.config.js"></script>

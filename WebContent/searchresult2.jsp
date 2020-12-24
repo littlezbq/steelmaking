@@ -31,23 +31,6 @@
 </head>
 <body>
 
-	<script type="text/javascript">
-		if ("${info}" != '') {
-			alert("${info}");
-		}
-	</script>
-	<!-- 调用确认是否删除的js文件 -->
-	<script type="text/javascript" src="./js/check_delete.js"></script>
-	<script type="text/javascript">
-		function url() {
-			var r = confirm("是否要删除这条数据？");
-			if (r == true) {
-				return true;
-			} else {
-				return false;
-			}
-		}
-	</script>
 	
 	
 	<!-- 提示插入不能为空值 -->
@@ -133,6 +116,10 @@
 			alert("终点成分(一倒钢水成分)锰");
 			return false;
 		}
+		else{
+			alert("添加信息成功");
+			return true;
+		}
 		
 	}
 	</script>
@@ -140,7 +127,7 @@
 	
 
 	
-<%-- <jsp:include page="index.jsp" /> --%>
+<jsp:include page="/WEB-INF/views/productParameter/include.jsp" />
 	<!-- 添加（录入）钢种成分面板 -->
 	<div id="center" data-options="region:'center',border:false" style="overflow:hidden;">
 			<div class="panel-heading" style="text-align: center;">
@@ -396,7 +383,7 @@
 	
 	
 	<!-- 显示查询结果 -->
-	<div class="panel-body" style="width=200px;height=400px;overflow-x:scroll;overflow-y:scroll">
+	<form id="form3" name = "form3"  class="panel-body" style="width:auto;height:500px;overflow-x:scroll;overflow-y:scroll">
 			<table class="table table-bordered"
 				style="border: 1px #CCCCCC solid; width: 80%; margin: auto">
 				<!-- 查询结果表头 -->
@@ -451,148 +438,143 @@
 					<c:forEach items="${requestScope.firstlist}" var="ProductParameter"
 						varStatus="sta">
 						<tr>
-							<td bgcolor="E6E6FA"
-								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
-								<a href="updateTest">
-									<!-- data-toggle="topjui-menubutton"   data-toggle="topjui-menubutton" -->
-									<i class="fa fa-pencil box" style="color: SteelBlue"></i>
-							</a>
-							</td>
+							<td><button class="btn btn-primary btn-sm" type="submit" onclick="update1()" >
+								更新<i class="fa fa-plus" style="font-size: 15px;"></i>
+							</button></td>
 							<td bgcolor="F8F8FF"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<a onclick="return url()" id="deleteConfirmation"
-								data-msg="提示：删除后无法恢复！确认是否删除？"
-								href="delete_granules.jsp?gran_id=9&amp;gran_date=2018-03-09">
+								href="deleteresult">
 									<i class="fa fa-trash-o box" style="color: Tomato"></i>
 							</a>
 							</td>
-							<td bgcolor="F8F8FF" style="text-align: center;height:20px;border: #CCCCCC 1px solid;">
+							<td contenteditable="true"bgcolor="F8F8FF" style="text-align: center;height:20px;border: #CCCCCC 1px solid;">
 							<font style="vertical-align: inherit;"> <font
-									style="vertical-align: inherit;"> <fmt:formatDate type="date" pattern="y-M-d"
+									style="vertical-align: inherit;"> <fmt:formatDate type="date" pattern="y-M-d" 
 											value='${ProductParameter.produceDate}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="E6E6FA"
+							<td contenteditable="true"bgcolor="E6E6FA"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
-											value='${ProductParameter.furnaceNum}' />&nbsp;
+										 value='${ProductParameter.furnaceNum}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="F8F8FF" style="text-align: center;height:20px;width: 100px;border: #CCCCCC 1px solid;">
+							<td  contenteditable="true" bgcolor="F8F8FF" style="text-align: center;height:20px;width: 100px;border: #CCCCCC 1px solid;">
 							<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.classNo}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="E6E6FA"
+							<td  contenteditable="true" bgcolor="E6E6FA"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.furnaceNo}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="F8F8FF" style="text-align: center;height:20px;width: 100px;border: #CCCCCC 1px solid;">
+							<td  contenteditable="true" bgcolor="F8F8FF" style="text-align: center;height:20px;width: 100px;border: #CCCCCC 1px solid;">
 							<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.furnaceAge}' />&nbsp;
 								</font>
 							</font></td>
 							
-							<td bgcolor="E6E6FA"
+							<td  contenteditable="true" bgcolor="E6E6FA"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.steelName}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="F8F8FF" style="text-align: center;height:20px;width: 100px;border: #CCCCCC 1px solid;">
+							<td contenteditable="true" bgcolor="F8F8FF" style="text-align: center;height:20px;width: 100px;border: #CCCCCC 1px solid;">
 							<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.oxygun1}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="E6E6FA"
+							<td contenteditable="true" bgcolor="E6E6FA"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.oxygun2}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="F8F8FF" style="text-align: center;height:20px;width: 100px;border: #CCCCCC 1px solid;">
+							<td contenteditable="true" bgcolor="F8F8FF" style="text-align: center;height:20px;width: 100px;border: #CCCCCC 1px solid;">
 							<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.oxymode}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="E6E6FA"
+							<td contenteditable="true" bgcolor="E6E6FA"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.ironC}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="F8F8FF" style="text-align: center;height:20px;width: 100px;border: #CCCCCC 1px solid;">
+							<td contenteditable="true" bgcolor="F8F8FF" style="text-align: center;height:20px;width: 100px;border: #CCCCCC 1px solid;">
 							<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.ironSi}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="E6E6FA"
+							<td contenteditable="true" bgcolor="E6E6FA"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.ironMn}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="F8F8FF" style="text-align: center;height:20px;width: 100px;border: #CCCCCC 1px solid;">
+							<td contenteditable="true" bgcolor="F8F8FF" style="text-align: center;height:20px;width: 100px;border: #CCCCCC 1px solid;">
 							<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.ironP}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="E6E6FA"
+							<td contenteditable="true" bgcolor="E6E6FA"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.ironS}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="F8F8FF" style="text-align: center;height:20px;width: 100px;border: #CCCCCC 1px solid;">
+							<td contenteditable="true" bgcolor="F8F8FF" style="text-align: center;height:20px;width: 100px;border: #CCCCCC 1px solid;">
 							<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.ironTemperature}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="E6E6FA"
+							<td contenteditable="true" bgcolor="E6E6FA"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.outletAge}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="F8F8FF"
+							<td contenteditable="true" bgcolor="F8F8FF"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.ironWeight}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="E6E6FA"
+							<td contenteditable="true" bgcolor="E6E6FA"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.resteelWeight1}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="F8F8FF"
+							<td contenteditable="true" bgcolor="F8F8FF"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.resteelWeight2}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="E6E6FA"
+							<td contenteditable="true" bgcolor="E6E6FA"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
@@ -600,130 +582,135 @@
 								</font>
 							</font></td>
 							
-							<td bgcolor="F8F8FF"
+							<td contenteditable="true" bgcolor="F8F8FF"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.proOxyval}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="E6E6FA"
+							<td contenteditable="true" bgcolor="E6E6FA"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.turnNum}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="F8F8FF"
+							<td contenteditable="true" bgcolor="F8F8FF"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.turnTemperature1}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="E6E6FA"
+							<td contenteditable="true" bgcolor="E6E6FA"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.proOxytime2}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="F8F8FF"
+							<td contenteditable="true" bgcolor="F8F8FF"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.turnTemperature2}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="E6E6FA"
+							<td contenteditable="true" bgcolor="E6E6FA"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.proNval}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="F8F8FF"
+							<td contenteditable="true" bgcolor="F8F8FF"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.slagTime}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="E6E6FA"
+							<td contenteditable="true" bgcolor="E6E6FA"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.slagWeight}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="F8F8FF"
+							<td contenteditable="true" bgcolor="F8F8FF"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.turnC}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="E6E6FA"
+							<td contenteditable="true" bgcolor="E6E6FA"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.turnC}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="F8F8FF"
+							<td contenteditable="true" bgcolor="F8F8FF"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.turnS}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="E6E6FA"
+							<td contenteditable="true" bgcolor="E6E6FA"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.turnP}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="F8F8FF"
+							<td contenteditable="true" bgcolor="F8F8FF"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.turnMn}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="E6E6FA"
+							<td contenteditable="true" bgcolor="E6E6FA"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.steelDir}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="F8F8FF"
+							<td contenteditable="true" bgcolor="F8F8FF"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.steelFe}' />&nbsp;
 								</font>
 							</font></td>
-							<td bgcolor="E6E6FA"
+							<td contenteditable="true"bgcolor="E6E6FA"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
 								<font style="vertical-align: inherit;"> <font
 									style="vertical-align: inherit;"> <c:out
 											value='${ProductParameter.steelRemark}' />&nbsp;
 								</font>
 							</font></td>
+
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
+			</form>
 		</div>
-</div>
 </div>
 <!-- 添加和更新分别跳转的函数 -->
 	<script type="text/javascript">
 		function update(){
 			form1.action = "updateMaterial";
 			document.form1.submit();
+		}
+		function update1(){
+			form3.action="updateMaterial";
+			document.form3.submit();
 		}
 		function add(){
 			form1.action = "addmaterial";

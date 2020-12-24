@@ -4,11 +4,9 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>删除结果</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<center>
-		<h1>Delete Success</h1>
-	</center>
+123456789
 </body>
 </html>

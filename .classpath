@@ -31,6 +31,6 @@
 	<classpathentry kind="lib" path="src/jackson-databind-2.11.0.jar"/>
 	<classpathentry kind="lib" path="src/jstl-1.2.jar"/>
 	<classpathentry kind="lib" path="src/standard-1.1.2.jar"/>
-	<classpathentry kind="lib" path="F:/workspace-spring-tool-suite-4-4.8.0.RELEASE/steelmakingSYS/WebContent/WEB-INF/lib/mysql-connector-java-8.0.18.jar"/>
+	<classpathentry kind="lib" path="F:/workspace-spring-tool-suite-4-4.8.0.RELEASE/steelmakingSYS1215/WebContent/WEB-INF/lib/mysql-connector-java-8.0.18.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
