@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%
+    pageContext.setAttribute("BasePath", request.getContextPath());
+    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +46,6 @@ funtion 1(){
 				属性选择：<select id="NAME" name="NAME" onchange="selectType();"
 					class="selectpicker show-tick form-control"
 					style="font-size: 15px; text-align: center; display: inline; vertical-align: middle; width: 160px; height: 30px; border: none">
-					<!-- <option value=null></option> -->
 					<option value="produce_date">按生产日期查询</option>
 					<option value="steel_name">按钢种类别查询</option>
 
@@ -91,7 +93,7 @@ funtion 1(){
 
     /* 初始化时隐藏除默认下拉菜单的其他菜单 */
      $(document).ready(function(){
-		$("#steelname").hide();
+		$("#selectAllSteelName").hide();
     }) 
 
 	function selectType(){
@@ -101,18 +103,16 @@ funtion 1(){
 		    $.ajax({
 		  		 type : "post",
 		   		 async : false, //同步执行
-		  		 url : "searchSteelName.do",
+		  		 url : "searchAllSteelName.do",
 		  		 /* data : transdata, */
 		 		 //dataType : "json", //返回数据形式为json 
 		 	     contentType: "application/x-www-form-urlencoded; charset=utf-8", 
 		 	     //contentType: "application/json;charset=utf-8",
 		 	     success : function(result) {
-			 	    var option;  
 		 		 	for (let index = 0; index < result.length; index++) {
 		 		 		$("#selectAllSteelName").append("<option value='"+result[index]+"'>"+result[index]+"</option>");
 		 		 		/* option += "<option value='"+result[index]+"'>"+result[index]+"</option>" */
 		 		 	}
-		 		 	$("#selectAllSteelName").html(option);
 		 		 	$("#selectAllSteelName").show();
 		   		 			
 				 },
@@ -129,16 +129,43 @@ funtion 1(){
 
 	function select(){
 		var orderTypeName = $("#NAME").val();
-		if (orderTypeName == "produce_date")
-			$.ajax({
-				type : "post",
-		   		async : false, //同步执行
-		   		url:"searchProducePara",
-		   		contentType: "application/x-www-form-urlencoded; charset=utf-8",
-		   		success:function(result){
-					
-				}
-			})
+    	if (orderTypeName == "steel_name"){
+    		$.ajax({
+    			type : "post",
+    	   		async : false, //同步执行
+    	   		url:"searchProduceParaBySteelName.do",
+    	   		data:$("#form2").serialize()/* transdata */,
+    	   		contentType: "application/x-www-form-urlencoded; charset=utf-8",
+    	   		success:function(result){
+    		   		/* alert(firstlist); */
+    		   		/* alert("success"); */
+    		   		/* window.location.href="searchresult"; */
+    		   		document.write(result);
+    			},
+    			error:function(){
+    				alert("error");
+    			}
+    		})
+       }
+       else if (orderTypeName == "produce_date"){
+    	   $.ajax({
+   			type : "post",
+   	   		async : false, //同步执行
+   	   		url:"searchProduceParaByTime.do",
+   	   		data:$("#form2").serialize()/* transdata */,
+   	   		contentType: "application/x-www-form-urlencoded; charset=utf-8",
+   	   		success:function(result){
+   		   		/* alert(firstlist); */
+   		   		/* alert("success"); */
+   		   		/* window.location.href="searchresult"; */
+   		   		document.write(result);
+   			},
+   			error:function(){
+   				alert("error");
+   			}
+   		})
+       }
+		
 	}
 
    	

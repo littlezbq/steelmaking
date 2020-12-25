@@ -27,8 +27,8 @@
     <script src="./res/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./res/bootstrap/3.3.7/js/moment.js"></script>
     <script type="text/javascript" src="./res/bootstrap/3.3.7/js/daterangepicker.js"></script>
-    <script type="text/javascript" src="calendar/calendar.js"></script>
-    <script type="text/javascript" src="calendar/WdatePicker.js"></script>
+<!--     <script type="text/javascript" src="calendar/calendar.js"></script>
+    <script type="text/javascript" src="calendar/WdatePicker.js"></script> -->
     
     
 </head>
@@ -56,106 +56,13 @@
 	</script>
 	
 	
-	<!-- 提示插入不能为空值 -->
-	<script>
-	function checkitems(){
-		/* 获取当前时间 */
-		var dateNow = new Date();
-		
-		if(produceDate.value==""){
-			alert("生产日期不能为空"); 
-			return (false);
-		}
-		else if (produceDate.value > dateNow){
-			alert("请选择合适的生产日期");
-			return (false);
-		}
-		else if(furnaceNum.value==""){
-			alert("炉次不能为空");
-			return (false);
-		}
-		else if(classNo.value==""){
-			alert("班别");
-			return false;
-		}
-		else if(furnaceNo.value==""){
-			alert("炉号");
-			return false;
-		}
-		else if(furnaceAge.value==""){
-			alert("炉龄");
-			return false;
-		}
-		else if(steelName.value==""){
-			alert("计划钢种名称");
-			return false;
-		}
-		else if(ironC.value==""){
-			alert("铁水成分碳含量");
-			return false;
-		}
-		else if(ironSi.value==""){
-			alert("铁水成分硅含量");
-			return false;
-		}
-		else if(ironMn.value==""){
-			alert("铁水成分锰含量");
-			return false;
-		}
-		else if(ironP.value==""){
-			alert("铁水成分磷含量");
-			return false;
-		}
-		else if(ironS.value==""){
-			alert("铁水成分硫含量");
-			return false;
-		}
-		else if(ironWeight.value==""){
-			alert("铁水装入量");
-			return false;
-		}
-		else if(steelWeight.value==""){
-			alert("钢水量");
-			return false;
-		}
-		else if(proOxytime1.value==""){
-			alert("冶炼时供氧时长");
-			return false;
-		}
-		else if(proOxyval.value==""){
-			alert("冶炼耗氧量");
-			return false;
-		}
-		else if(turnNum.value==""){
-			alert("倒炉次数");
-			return false;
-		}
-		else if(turnC.value==""){
-			alert("终点成分(一倒钢水成分)碳");
-			return false;
-		}
-		else if(turnS.value==""){
-			alert("终点成分(一倒钢水成分)硫");
-			return false;
-		}
-		else if(turnP.value==""){
-			alert("终点成分(一倒钢水成分)磷");
-			return false;
-		}
-		else if(turnMn.value==""){
-			alert("终点成分(一倒钢水成分)锰");
-			return false;
-		}
-		
-	}
-	</script>
 
 	
 
 	
-<jsp:include page="include.jsp" />
+<jsp:include page="manageProducePara.jsp" />
  
-	<div class="panel-body">
+	<%-- <div class="panel-body">
 		<!--添加生产参数按钮  -->
 		<form action="addProduceParaPage" method="post" name="form1"
 			id="form1">
@@ -167,66 +74,39 @@
 		</form>
 		
 		<!-- 查询操作 -->
-		<form action="searchProducePara" method="post" name="form2" id="form2">
+		<form  method="post" name="form2" id="form2">
 			<div>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				属性选择：<select id="NAME" name="NAME"
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分类查询&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				属性选择：<select id="NAME" name="NAME" onchange="selectType();"
 					class="selectpicker show-tick form-control"
 					style="font-size: 15px; text-align: center; display: inline; vertical-align: middle; width: 160px; height: 30px; border: none">
-					<option value="class_no">按班次查询</option>
-					<option value="furnace_num">按炉次查询</option>
 					<option value="produce_date">按生产日期查询</option>
-					<!--<option value="4">4</option>
-				<option value="5">5</option>
-				<option value="6">6</option>
-				<option value="7">7</option>
-				<option value="8">8</option>
-				<option value="9">9</option>
-				<option value="10">10</option>
-				<option value="11">11</option>
-				<option value="12">12</option> -->
+					<option value="steel_name">按钢种类别查询</option>
 
-				</select> 输入关键字：<input type="text"
-					style="width: 50px; height: 25px; font-size: 13px; border: #CCCCCC 1px solid;"
-					id="VALUE" name="VALUE"> &nbsp;&nbsp;
-				<button class="btn btn-success btn-sm" type="submit">
+				</select> 
+				输入关键字：
+				<!-- 按日期查询 -->
+				<div id="date" style="display:inline;">
+					<input type="date" 
+						style=" height: 25px; font-size: 13px; border: #CCCCCC 1px solid;"
+						id="produceDate1" name="produceDate1"> &nbsp;&nbsp;
+					<input type="date"
+						style=" height: 25px; font-size: 13px; border: #CCCCCC 1px solid;"
+						id="produceDate2" name="produceDate2"> &nbsp;&nbsp;
+				</div>
+				<!-- 按钢种类型查询 -->
+				<select id="selectAllSteelName" name="selectAllSteelName" >
+				</select>
+				
+				
+				<button class="btn btn-success btn-sm" type="submit" onclick="select();">
 					<i class="fa fa-search" aria-hidden="true"></i>查询
 				</button>
 			</div>
-		</form>
+		</form> --%>
 
 
-		<!-- 删除操作 -->
-		<!-- 	<form action="deleteMaterials" method="post" name="form3" id="form3">
-		<div>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			属性选择：<select id = "NAME" name="NAME"
-				class="selectpicker show-tick form-control"
-				style="font-size: 15px; text-align: center; display: inline; vertical-align: middle; width: 160px; height: 30px; border: none">
-				<option value="class_no">按班次删除</option>
-				<option value="furnace_num">按炉次删除</option>
-				<option value="produce_date">按生产日期删除</option>
-			<option value="4">4</option>
-				<option value="5">5</option>
-				<option value="6">6</option>
-				<option value="7">7</option>
-				<option value="8">8</option>
-				<option value="9">9</option>
-				<option value="10">10</option>
-				<option value="11">11</option>
-				<option value="12">12</option>
-
-			</select> 输入关键字：<input type="text"
-				style="width: 50px; height: 25px; font-size: 13px; border: #CCCCCC 1px solid;"
-				id="VALUE" name="VALUE">
-			&nbsp;&nbsp;
-			<button class="btn btn-success btn-sm" type="submit">
-				<i class="fa fa-search" aria-hidden="true" ></i>删除
-			</button>
-		</div>
-	</form> -->
 
 
 		<!-- 显示查询结果 -->
@@ -289,7 +169,7 @@
 						<tr>
 							<td bgcolor="E6E6FA"
 								style="text-align: center; height: 20px; border: #CCCCCC 1px solid;">
-								<a href="updateProduceParaPage/${ProductParameter.produceDate}&${ProductParameter.furnaceNum}"> <!-- data-toggle="topjui-menubutton"   data-toggle="topjui-menubutton" -->
+								<a href="updateProduceParaPage/${ProductParameter.produceDate}&${ProductParameter.furnaceNum}"> 
 									<i class="fa fa-pencil box" style="color: SteelBlue"></i>
 							</a>
 							</td>
@@ -608,6 +488,11 @@
 			form1.action = "addmaterial";
 			document.form1.submit();
 		}
+
+
+
+
+		
 	</script>
 	
 	<!-- 插入记录：ajax提交表单 -->

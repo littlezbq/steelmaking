@@ -100,7 +100,7 @@
   </select>
   
   <!-- 分钢种查询 -->
-  <select id="selectByStellName" parameterType="model.ProductParameter" resultMap="BaseResultMap">
+  <select id="selectBySteelName" parameterType="model.ProductParameter" resultMap="BaseResultMap">
   	select 
   	<include refid="Base_Column_List" />
   	from product_parameter

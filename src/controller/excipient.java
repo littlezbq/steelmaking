@@ -69,17 +69,7 @@ public class excipient {
 	public String manageSteelPara() {
 		return "/standardSteel/manageSteelPara";
 	}
-//	
-//	@RequestMapping("/showalloy")
-//	public String showalloy() {
-//		return "alloy";
-//	}
-//	
-//	@RequestMapping("/showdreg")
-//	public String showdreg() {
-//		return "dreg";
-//	}
-//	
+
 	@RequestMapping("/addSteelParaPage")
 	public String addSteelParaPage() {
 		return "/standardSteel/addSteelParaPage";
@@ -113,41 +103,10 @@ public class excipient {
 	}
 	
 	
-	
-	
-	//添加生产数据操作
-//		@RequestMapping(value="/addProducePara", method=RequestMethod.POST)
-////		@ResponseBody
-//		public ModelAndView addProducePara(ProductParameter product){
-//			System.out.println(product.toString());
-////			System.out.println(product.getProduceDate());
-//			int result = -1;
-//			
-//			ModelAndView model1 = new ModelAndView("manageProducePara");
-//			
-//			
-//			
-//			
-//			Date produceDate = product.getProduceDate();
-//			String furnaceNum = product.getFurnaceNum();
-//			
-//			ProductParameterMapperImpl productImpl = new ProductParameterMapperImpl();
-//			if (productImpl.selectByPrimaryKey(produceDate, furnaceNum) == null) {
-//				result = productImpl.insertSingleRecord(product);
-//				model1.addObject("result","添加成功！");
-//				return model1;
-//			}
-//			model1.addObject("result","添加失败！");
-//			return model1;
-//			
-////			System.out.println(product.toString());
-//			
-//		}
-	
 //	查询所有钢种类型
-	@RequestMapping("/searchSteelName")
+	@RequestMapping("/searchAllSteelName")
 	@ResponseBody
-	public List<String> searchSteelName(){
+	public List<String> searchAllSteelName(){
 		List<String> steelName_list = null;
 		
 		ProductParameterMapperImpl productImpl = new ProductParameterMapperImpl();
@@ -156,33 +115,63 @@ public class excipient {
 		return steelName_list;
 	}
 	
+//	按钢种查询
+	@RequestMapping("/searchProduceParaBySteelName")
+	public ModelAndView searchProduceParaBySteelName(HttpServletRequest request) throws UnsupportedEncodingException{
+		ModelAndView modelAndView = new ModelAndView();
+		request.setCharacterEncoding("UTF-8");
+		String steelName = request.getParameter("selectAllSteelName");
+		List<ProductParameter> product_list = null;
+		ProductParameter product = null;
+		
+		ProductParameterMapperImpl productImpl = new ProductParameterMapperImpl();
+		product_list = productImpl.selectBySteelName(steelName);
+		
+		modelAndView.addObject("firstlist", product_list);
+		
+//		后端测试
+		for (int i = 0; i < product_list.size();i++) {
+			product = product_list.get(i);
+			System.out.println(product.toString());
+		}
+		
+		modelAndView.setViewName("/productParameter/searchresult");
+		return modelAndView;
+	}
 	
 	
-	
-	//按生产日期查询生产数据记录操作
-	@RequestMapping("/searchProducePara")
-	public ModelAndView searchProducePara(HttpServletRequest request) throws UnsupportedEncodingException{
-		ModelAndView modelAndView=new ModelAndView();
+	//按生产日期查询生产数据记录操作-ModelAndView
+	@RequestMapping("/searchProduceParaByTime")
+	public ModelAndView searchProduceParaByTime(HttpServletRequest request) throws UnsupportedEncodingException{
+		ModelAndView modelAndView = new ModelAndView();
 		request.setCharacterEncoding("UTF-8");
 		String producedate1 = request.getParameter("produceDate1");
 		String producedate2 = request.getParameter("produceDate2");
 		Date produceDate1 = dateToTime.StringToDate(producedate1);
 		Date produceDate2 = dateToTime.StringToDate(producedate2);
 		List<ProductParameter> product_list = null;
-//		ProductParameter product = null;
+		ProductParameter product = null;
 		
 		ProductParameterMapperImpl productImpl = new ProductParameterMapperImpl();
 		product_list = productImpl.selectByTime(produceDate1, produceDate2);
 		modelAndView.addObject("firstlist", product_list);
-//		for (int i = 0; i < product_list.size();i++) {
-//			product = product_list.get(i);
-//			System.out.println(product.toString());
-//			
-//		}
+		
+//		后端测试
+		for (int i = 0; i < product_list.size();i++) {
+			product = product_list.get(i);
+			System.out.println(product.toString());
+			
+		}
 		modelAndView.setViewName("/productParameter/searchresult");
 		return modelAndView;
 	}
 	
+	
+	/*
+	 * @RequestMapping("/searchresult") public String searchresult() { return
+	 * "/productParameter/addProduceParaPage"; }
+	 */
+		
 	//删除数据操作
 	@RequestMapping(value="/deleteProduceParaPage/{produceDate}&{furnaceNum}",method=RequestMethod.GET)
 	public String deleteProduceParaPage(@PathVariable("produceDate")String producedate,@PathVariable("furnaceNum")String furnaceNum, HttpServletResponse response) throws IOException {
@@ -191,8 +180,11 @@ public class excipient {
 		ProductParameterMapperImpl productImpl = new ProductParameterMapperImpl();
 		result = productImpl.deleteByPrimaryKey(produceDate, furnaceNum);
 		
+		System.out.println(producedate);
+		System.out.println(furnaceNum);
+		
 		if (result > 0) {
-			return "redirect:/productParameter/manageProducePara";
+			return "redirect:/manageProducePara";
 //			response.sendRedirect("/steelmakingSYS/searchResult");
 			
 		}

@@ -95,6 +95,7 @@ public class ProductParameterMapperImpl implements ProductParameterMapper{
 		}
 		catch (Exception e) {
 //			出错回滚事务
+			e.printStackTrace();
 			sqlsession.rollback();
 		}
 		finally {
