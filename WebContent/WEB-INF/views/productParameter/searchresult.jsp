@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <!-- <span style="font-size:12px;"><span style="font-size:12px;"> -->
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
@@ -33,10 +33,6 @@
     
 </head>
 <body>
-	
-
-	
-	
 	<script type="text/javascript">
 		if ("${info}" != '') {
 			alert("${info}");
@@ -61,56 +57,8 @@
 
 	
 <jsp:include page="manageProducePara.jsp" />
- 
-	<%-- <div class="panel-body">
-		<!--添加生产参数按钮  -->
-		<form action="addProduceParaPage" method="post" name="form1"
-			id="form1">
-			<button class="btn btn-primary btn-sm" type="submit" id="submit">
-				添加生产参数<i class="fa fa-plus" style="font-size: 15px;"></i>
-			</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<a  class = "btn btn-primary btn-sm" href="${BasePath}/manageProducePara" style="font-size: 15px;" > 返回</a>
-		</form>
-		
-		<!-- 查询操作 -->
-		<form  method="post" name="form2" id="form2">
-			<div>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分类查询&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				属性选择：<select id="NAME" name="NAME" onchange="selectType();"
-					class="selectpicker show-tick form-control"
-					style="font-size: 15px; text-align: center; display: inline; vertical-align: middle; width: 160px; height: 30px; border: none">
-					<option value="produce_date">按生产日期查询</option>
-					<option value="steel_name">按钢种类别查询</option>
-
-				</select> 
-				输入关键字：
-				<!-- 按日期查询 -->
-				<div id="date" style="display:inline;">
-					<input type="date" 
-						style=" height: 25px; font-size: 13px; border: #CCCCCC 1px solid;"
-						id="produceDate1" name="produceDate1"> &nbsp;&nbsp;
-					<input type="date"
-						style=" height: 25px; font-size: 13px; border: #CCCCCC 1px solid;"
-						id="produceDate2" name="produceDate2"> &nbsp;&nbsp;
-				</div>
-				<!-- 按钢种类型查询 -->
-				<select id="selectAllSteelName" name="selectAllSteelName" >
-				</select>
-				
-				
-				<button class="btn btn-success btn-sm" type="submit" onclick="select();">
-					<i class="fa fa-search" aria-hidden="true"></i>查询
-				</button>
-			</div>
-		</form> --%>
-
-
-
-
 		<!-- 显示查询结果 -->
-		<div class="panel-body"  style="width:auto;height:500px;overflow-x:scroll;overflow-y:scroll">
+		<div class="panel-body"  style="width:auto;height:987px;overflow-x:scroll;overflow-y:scroll">
 			<table class="table table-bordered"
 				style="border: 1px #CCCCCC solid; width: 80%; margin: auto">
 				<!-- 查询结果表头 -->
@@ -476,102 +424,49 @@
 				</tbody>
 			</table>
 		</div>
-	</div>
-	</div>
-<!-- 添加和更新分别跳转的函数 -->
-	<script type="text/javascript">
-		function update(){
-			form1.action = "updateMaterial";
-			document.form1.submit();
-		}
-		function add(){
-			form1.action = "addmaterial";
-			document.form1.submit();
-		}
-
-
-
-
 		
-	</script>
+		<!--显示分页信息-->
+
+		<div class="modal-footer no-margin-top" style="display:inline;">
+
+			<div class="col-md-6" style="font-size:15px">当前第 [${requestScope.pageNum}]页,共
+				[${requestScope.finalPage}] 页.一共 [${requestScope.sum}]条记录,上一页[${requestScope.prePage}],下一页[${requestScope.nextPage}]
+			</div>
+			<div style="display:inline;">
+			<ul  style="margin-left:-290px;" class="pagination pull-left no-margin" >
+				<li style="float:left;" class="prev" >
+					<form id="form1" action="${requestScope.selectType}" method="post">
+						<button type="submit"  class="btn btn-default" id="pageNum" name="pageNum" value=1 >首页</button>
+					</form>
+						
+				</li>
+				<li class="prev" >
+					<form id="form1" style="float:left;" action="${requestScope.selectType}" method="post">
+						<button type="submit"  class="btn btn-default" id="pageNum" name="pageNum" value=${requestScope.prePage} >上一页</button>
+					</form>
+				</li>
+				<li class="next" >
+					<form id="form1" style="float:left;" action="${requestScope.selectType}" method="post">
+						<button type="submit"  class="btn btn-default" id="pageNum" name="pageNum" value=${requestScope.nextPage} >下一页</button>
+					</form>
+				</li>
+				<li>
+					<form id="form1" style="float:left;" action="${requestScope.selectType}" method="post">
+						<button type="submit"  class="btn btn-default" id="pageNum" name="pageNum" value=${requestScope.finalPage} >尾页</button>
+					</form>
+				</li>
+
+			</ul>
+		</div>
+
+<script type="text/javascript">
+	function jump(){
+		form1.action = "searchProduceParaByTime";
+		document.form1.submit();
+	}
+</script>
 	
-	<!-- 插入记录：ajax提交表单 -->
-	<!-- <script type="text/javascript">
-		function sendForm1(){
-			$.ajax({
-				type:"POST",
-				/* dataType:"json",  */
-				async:true,
-				/* contentType: "application/json; charset=UTF-8",  */
-				url:"addmaterial",//请求函数
-				data:$("#form1").serialize()
-				success:function(result){
-					if(result){
-						alert("添加成功！");
-					}
-					else
-						alert("添加失败！");
-				},
-				error:function(){
-					alert("异常");
-				}
-			
-			})
-		}
-	</script> -->
-	
-	<!-- 更新记录：ajax提交表单 -->
-<!-- 	<script type="text/javascript">
-		function sendForm2(){
-			$.ajax({
-				type:"POST",
-				/* dataType:"json",  */
-				async:true,
-				/* contentType: "application/json; charset=UTF-8",  */
-				url:"updateMaterial",//请求函数
-				data:$("#form1").serialize()
-				success:function(result){
-					if(result){
-						alert("更新成功！");
-					}
-					else
-						alert("更新失败");
-				},
-				error:function(){
-					alert("异常！");
-				}
-			})
-		}
-	</script> -->
-	
-	
-	
-	
-	
-	
-	<!-- <script type="text/javascript">
-		function sendParm(){
-			$ajax({
-				type:"post",
-				async:true,
-				url:"searchsteel",
-				data:{'NAME':NAME,'VALUE='+encodeURI(encodeURI(VALUE))},
-				success:function(result){
-					if(result){
-						alert("success");
-						window.location.href = "searchsteel";
-					}
-					
-				},
-				error:function(){
-					alert("异常");
-				}
-				
-			})	
-		}
-	</script> -->
-	
-	<script type="text/javascript">
+<script type="text/javascript">
   $(document).ready(function() {
     $('#hls_date').daterangepicker({ singleDatePicker: true }, function(start, end, label) {
     console.log(start.toISOString(), end.toISOString(), label);
@@ -579,7 +474,7 @@
   });
 </script>
 
-	<script type="text/javascript">
+<script type="text/javascript">
 $(function () { 
     $('input:text:first').focus(); //获取第一个焦点
     var $inp = $('input:text'); //定义全部焦点

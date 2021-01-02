@@ -33,7 +33,7 @@ funtion 1(){
 		<!--添加生产参数按钮  -->
 		<form action="addProduceParaPage" method="post" name="form1"
 			id="form1">
-			<button class="btn btn-primary btn-sm" type="submit" id="submit">
+			<button style="float:left;" class="btn btn-primary btn-sm" type="submit" id="submit">
 				添加生产参数<i class="fa fa-plus" style="font-size: 15px;"></i>
 			</button>
 		</form>
@@ -65,9 +65,13 @@ funtion 1(){
 				</select>
 				
 				
-				<button class="btn btn-success btn-sm" type="submit" onclick="select();">
+				<button class="btn btn-success btn-sm" type="submit" onclick="select();return false;">
 					<i class="fa fa-search" aria-hidden="true"></i>查询
 				</button>
+				
+				<div class="modal-footer no-margin-top"  style="display: none;">
+					<!-- 隐藏一个input标签用来将首页的值传回后端 -->
+					<input type="text" id="pageNum" name="pageNum" value=1 />
 			</div>
 		</form>
 	</div>
@@ -133,14 +137,17 @@ funtion 1(){
     		$.ajax({
     			type : "post",
     	   		async : false, //同步执行
-    	   		url:"searchProduceParaBySteelName.do",
+    	   		url:"searchProduceParaBySteelName",
     	   		data:$("#form2").serialize()/* transdata */,
     	   		contentType: "application/x-www-form-urlencoded; charset=utf-8",
     	   		success:function(result){
     		   		/* alert(firstlist); */
     		   		/* alert("success"); */
-    		   		/* window.location.href="searchresult"; */
-    		   		document.write(result);
+    		   		/* alert(result); */
+    		   		/* window.location.href="searchresult?firstlist=" + result; */
+    	   			document.open();
+       		   		document.write(result);
+       		   		document.close(); 
     			},
     			error:function(){
     				alert("error");
@@ -151,14 +158,17 @@ funtion 1(){
     	   $.ajax({
    			type : "post",
    	   		async : false, //同步执行
-   	   		url:"searchProduceParaByTime.do",
+   	   		url:"searchProduceParaByTime",
    	   		data:$("#form2").serialize()/* transdata */,
    	   		contentType: "application/x-www-form-urlencoded; charset=utf-8",
    	   		success:function(result){
    		   		/* alert(firstlist); */
    		   		/* alert("success"); */
-   		   		/* window.location.href="searchresult"; */
+   		   		/* alert(result); */
+   		   		/* window.location.href="searchresult?firstlist=" + result;  */
+   		   		document.open();
    		   		document.write(result);
+   		   		document.close();
    			},
    			error:function(){
    				alert("error");

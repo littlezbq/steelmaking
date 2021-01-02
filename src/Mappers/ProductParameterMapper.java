@@ -2,6 +2,7 @@ package Mappers;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import model.ProductParameter;
 import org.apache.ibatis.annotations.Param;
@@ -16,19 +17,19 @@ public interface ProductParameterMapper {
     
     
 //  分组查询：分时间段查询
-    List<ProductParameter>selectByTime(@Param("produceDate1")Date produceDate1,@Param("produceDate2")Date produceDate2);
+    List<ProductParameter>selectByTime(@Param("produceDate1")Date produceDate1,@Param("produceDate2")Date produceDate2,@Param("begin")int begin,@Param("total")int total);
+
+    //  获取该时间段记录总和
+    int getTotalRecord(@Param("produceDate1")Date produceDate1,@Param("produceDate2")Date produceDate2);
     
 //  分组查询：分钢种查询
-    List<ProductParameter> selectBySteelName(@Param("steelName")String steelName);
+    List<ProductParameter> selectBySteelName(@Param("steelName")String steelName,@Param("begin")int begin,@Param("total")int total);
     
-//  嵌套查询：对某个时间段三个属性字段查询记录
-    List<ProductParameter> selectWithThreeRequirementsByTime(@Param("classNo")String classNo,@Param("furnaceNo")String furnaceNo,@Param("steelName")String steelName,@Param("produceDate1")Date produceDate1,@Param("produceDate2")Date produceDate2);
+//  获取某一钢种记录总和
+    int getTotalRecordBySteelName(@Param("steelName")String steelName);
     
-//  嵌套查询：对某个时间段的任意两个属性字段查询记录
-    List<ProductParameter> selectWithAnyTwoRequirementsByTime(@Param("NAME1")String NAME1,@Param("VALUE1")String VALUE1,@Param("NAME2")String NAME2,@Param("VALUE2")String VALUE2,@Param("produceDate1")Date produceDate1,@Param("produceDate2")Date produceDate2);
-    
-//  嵌套查询：对某个时间段的任意一个属性字段查询记录
-    List<ProductParameter> selectWithAnyOneRequirementByTime(@Param("NAME1")String NAME1,@Param("VALUE1")String VALUE1,@Param("produceDate1")Date produceDate1,@Param("produceDate2")Date produceDate2);
+//  条件查询：对某个时间段三个属性字段查询记录
+    List<ProductParameter> selectWithThreeRequirementsByTime(Map<String,String> map);
     
 //  按主键字段删除单条记录
     int deleteByPrimaryKey(@Param("produceDate")Date produceDate,@Param("furnaceNum")String furnaceNum);

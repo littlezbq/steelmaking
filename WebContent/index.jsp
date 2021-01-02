@@ -93,11 +93,11 @@
 
 <div id="center" data-options="region:'center',border:false" style="overflow:hidden;">
           <ol class="breadcrumb">
-            <li><a href="showsteel">钢种成分</a><li>
+          <!--   <li><a href="showsteel">钢种成分</a><li>
             <li><a href="showalloy">合金成分</a><li>
-             <li><a href="showdreg">渣料成分</a><li>
+             <li><a href="showdreg">渣料成分</a><li> -->
           </ol>
-      </div>
+</div>
 </body>
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript" src="./static/public/js/topjui.config.js"></script>

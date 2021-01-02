@@ -17,6 +17,7 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.websocket.server.PathParam;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -119,21 +120,75 @@ public class excipient {
 	@RequestMapping("/searchProduceParaBySteelName")
 	public ModelAndView searchProduceParaBySteelName(HttpServletRequest request) throws UnsupportedEncodingException{
 		ModelAndView modelAndView = new ModelAndView();
+		ProductParameterMapperImpl productImpl = new ProductParameterMapperImpl();
+		
+//		新建分页类对象
+		pageInfo page = pageInfo.getPageInfo();
 		request.setCharacterEncoding("UTF-8");
 		String steelName = request.getParameter("selectAllSteelName");
-		List<ProductParameter> product_list = null;
-		ProductParameter product = null;
 		
-		ProductParameterMapperImpl productImpl = new ProductParameterMapperImpl();
-		product_list = productImpl.selectBySteelName(steelName);
+//		将steelName存入session中
+		HttpSession session = request.getSession();
+		if (steelName != null) {
+			session.setAttribute("steelName",steelName);
+			
+//			将总记录数存入pageInfo中
+			page.setTotalRecord(productImpl.getTotalRecordBySteelName(steelName));
+//			System.out.println(page.getTotalRecord());
+			
+			session.setAttribute("totalRecord", page.getTotalRecord());
+		}
+		else {
+			steelName = session.getAttribute("steelName").toString();
+		}
+		
+		List<ProductParameter> product_list = null;
+		
+		int totalRecord = Integer.parseInt(session.getAttribute("totalRecord").toString());
+		
+//		获取当前页面
+		page.setCurrentPage(Integer.parseInt(request.getParameter("pageNum")));
+		
+//		获取每一页的起始索引
+		int begin = (page.getCurrentPage() - 1) * page.getMaxRecord();
+		
+//		获取上一页和下一页,这里要加上校验
+//		如果当前页面已经为首页了，则怎么点上一页都是首页，否则返回上一页
+		if (page.getCurrentPage() > 1) {
+			page.setPrePage(page.getCurrentPage() - 1);
+		}
+		else {
+			page.setPrePage(page.getCurrentPage());
+		}
+		
+//		获取尾页
+		if (totalRecord % page.getMaxRecord() == 0) {
+			page.setFinalPage(totalRecord / page.getMaxRecord());
+		}
+		else {
+			page.setFinalPage(totalRecord / page.getMaxRecord() + 1);
+		}
+		
+//		如果当前页面已经是尾页了，则怎么点都是尾页，否则返回下一页
+		if (page.getCurrentPage() < page.getFinalPage()) {
+			page.setNextPage(page.getCurrentPage() + 1);
+		}
+		else {
+			page.setNextPage(page.getCurrentPage());
+		}
+		
+		product_list = productImpl.selectBySteelName(steelName,begin,page.getMaxRecord());
 		
 		modelAndView.addObject("firstlist", product_list);
+		modelAndView.addObject("firstlist", product_list);
+		modelAndView.addObject("prePage", page.getPrePage());
+		modelAndView.addObject("nextPage", page.getNextPage());
+		modelAndView.addObject("finalPage", page.getFinalPage());
+		modelAndView.addObject("sum", totalRecord);
+		modelAndView.addObject("pageNum", page.getCurrentPage());
 		
-//		后端测试
-		for (int i = 0; i < product_list.size();i++) {
-			product = product_list.get(i);
-			System.out.println(product.toString());
-		}
+//		返回页面时表明是哪一个函数传过来的参数
+		modelAndView.addObject("selectType","searchProduceParaBySteelName");
 		
 		modelAndView.setViewName("/productParameter/searchresult");
 		return modelAndView;
@@ -144,33 +199,98 @@ public class excipient {
 	@RequestMapping("/searchProduceParaByTime")
 	public ModelAndView searchProduceParaByTime(HttpServletRequest request) throws UnsupportedEncodingException{
 		ModelAndView modelAndView = new ModelAndView();
+//		新建分页类对象
+		pageInfo page = pageInfo.getPageInfo();
+		ProductParameterMapperImpl productImpl = new ProductParameterMapperImpl();
 		request.setCharacterEncoding("UTF-8");
+		
 		String producedate1 = request.getParameter("produceDate1");
 		String producedate2 = request.getParameter("produceDate2");
-		Date produceDate1 = dateToTime.StringToDate(producedate1);
-		Date produceDate2 = dateToTime.StringToDate(producedate2);
-		List<ProductParameter> product_list = null;
-		ProductParameter product = null;
-		
-		ProductParameterMapperImpl productImpl = new ProductParameterMapperImpl();
-		product_list = productImpl.selectByTime(produceDate1, produceDate2);
-		modelAndView.addObject("firstlist", product_list);
-		
-//		后端测试
-		for (int i = 0; i < product_list.size();i++) {
-			product = product_list.get(i);
-			System.out.println(product.toString());
+		Date produceDate1 = null;
+		Date produceDate2 = null;
+//		将本次查询的生产日期参数存入Session中
+		HttpSession session = request.getSession();
+		if (producedate1 != null && producedate2 != null) {
+			session.setAttribute("produceDate1", producedate1);
+			session.setAttribute("produceDate2", producedate2);
 			
+			produceDate1 = dateToTime.StringToDate(producedate1);
+			produceDate2 = dateToTime.StringToDate(producedate2);
+			
+//			将总记录数存入pageInfo中
+			page.setTotalRecord(productImpl.getTotalRecord(produceDate1, produceDate2));
+//			System.out.println(page.getTotalRecord());
+			
+			session.setAttribute("totalRecord", page.getTotalRecord());
 		}
+		else {
+			producedate1 = session.getAttribute("produceDate1").toString();
+			producedate2 = session.getAttribute("produceDate2").toString();
+			
+			produceDate1 = dateToTime.StringToDate(producedate1);
+			produceDate2 = dateToTime.StringToDate(producedate2);
+		}
+		
+		List<ProductParameter> product_list = null;
+		int totalRecord = Integer.parseInt(session.getAttribute("totalRecord").toString());
+		
+//		获取当前页面
+		page.setCurrentPage(Integer.parseInt(request.getParameter("pageNum")));
+		
+//		获取每一页的起始索引
+		int begin = (page.getCurrentPage() - 1) * page.getMaxRecord();
+		
+//		获取上一页和下一页,这里要加上校验
+//		如果当前页面已经为首页了，则怎么点上一页都是首页，否则返回上一页
+		if (page.getCurrentPage() > 1) {
+			page.setPrePage(page.getCurrentPage() - 1);
+		}
+		else {
+			page.setPrePage(page.getCurrentPage());
+		}
+		
+//		获取尾页
+		if (totalRecord % page.getMaxRecord() == 0) {
+			page.setFinalPage(totalRecord / page.getMaxRecord());
+		}
+		else {
+			page.setFinalPage(totalRecord / page.getMaxRecord() + 1);
+		}
+		
+//		如果当前页面已经是尾页了，则怎么点都是尾页，否则返回下一页
+		if (page.getCurrentPage() < page.getFinalPage()) {
+			page.setNextPage(page.getCurrentPage() + 1);
+		}
+		else {
+			page.setNextPage(page.getCurrentPage());
+		}
+		
+
+		
+		product_list = productImpl.selectByTime(produceDate1, produceDate2,begin,page.getMaxRecord());
+		
+		modelAndView.addObject("firstlist", product_list);
+		modelAndView.addObject("prePage", page.getPrePage());
+		modelAndView.addObject("nextPage", page.getNextPage());
+		modelAndView.addObject("finalPage", page.getFinalPage());
+		modelAndView.addObject("sum", totalRecord);
+		modelAndView.addObject("pageNum", page.getCurrentPage());
+
+//		返回页面时表明是哪一个函数传过来的参数
+		modelAndView.addObject("selectType","searchProduceParaByTime");
+		
+		System.out.println();
+		
 		modelAndView.setViewName("/productParameter/searchresult");
 		return modelAndView;
 	}
 	
 	
-	/*
-	 * @RequestMapping("/searchresult") public String searchresult() { return
-	 * "/productParameter/addProduceParaPage"; }
-	 */
+	  @RequestMapping("/searchresult") 
+	  public String searchresult() { 
+		  return "/productParameter/searchresult"; 
+	  }
+	 
 		
 	//删除数据操作
 	@RequestMapping(value="/deleteProduceParaPage/{produceDate}&{furnaceNum}",method=RequestMethod.GET)

@@ -97,6 +97,27 @@
 	  	from product_parameter
 	  	where 
 	  	produce_date between #{produceDate1} and #{produceDate2})
+	limit #{begin},#{total}
+  </select>
+  
+  <!-- 获取所有分页记录 -->
+  <select id="getTotalRecord" parameterType="model.ProductParameter" resultType="int">
+  	select count(*) 
+  	from product_parameter
+  	where produce_date in
+	  	(select
+	  	produce_date
+	  	from product_parameter
+	  	where 
+	  	produce_date between #{produceDate1} and #{produceDate2})
+  </select>
+  
+  <!-- 获取钢种查询所有分页记录 -->
+  <select id="getTotalRecordBySteelName" parameterType="model.ProductParameter" resultType="int">
+  	select 
+  	count(*)
+  	from product_parameter
+  	where steel_name=#{steelName}
   </select>
   
   <!-- 分钢种查询 -->
@@ -105,58 +126,28 @@
   	<include refid="Base_Column_List" />
   	from product_parameter
   	where steel_name=#{steelName}
+  	limit #{begin},#{total}
   </select>
   
-  
-  
-  
-  <!-- 嵌套查询组：针对班组、炉号、钢种类型及时间段进行查询 -->
-  <!-- 对某个时间段任意三个属性字段查询记录 -->
-  <select id="selectWithThreeRequirementsByTime" parameterType="model.ProductParameter" resultMap="BaseResultMap">
+  <!-- 条件查询组：针对班组、炉号、钢种类型及时间段进行查询 -->
+  <select id="selectWithThreeRequirementsByTime" parameterType="hashmap" resultMap="BaseResultMap">
   	select 
   	<include refid="Base_Column_List" />
-  	from product_parameter
-  	where class_no=#{classNo} AND furnace_no=#{furnaceNo} 
-  	AND steel_name=#{steelName} AND produce_date in
-	  	(select
-	  	produce_date
-	  	from product_parameter
-	  	where 
-	  	and produce_date BETWEEN #{produceDate1} AND #{produceDate2})
+  	from product_parameter where 1=1
+	  	<if test="classNo !=null and classNo !=''">
+	  		AND class_no=#{classNo}
+	  	</if> 
+	  	<if test="furnaceNo !=null and furnaceNo !=''">
+	  		AND furnace_no=#{furnaceNo}
+	  	</if>
+	  	<if test="steelName !=null and steelName !=''">
+	  		AND steel_name=#{steelName}
+	  	</if>
+	  	<if test="produceDate1 !=null and produceDate2 !=null">
+	  		AND produce_date BETWEEN #{produceDate1} AND #{produceDate2}
+	  	</if>
+	  	 
   </select>
-  
-  <!-- 对某个时间段的任意两个属性字段查询记录 -->
-  <select id="selectWithAnyTwoRequirementsByTime" parameterType="model.ProductParameter" resultMap="BaseResultMap">
-  	select 
-  	<include refid="Base_Column_List" />
-  	from product_parameter
-  	where ${NAME1}=#{VALUE1} AND ${NAME2}=#{VALUE2}
-  	AND produce_date in 
-  		(select
-	  	produce_date
-	  	from product_parameter
-	  	where 
-	  	and produce_date BETWEEN #{produceDate1} AND #{produceDate2})
-  </select>
-  
-  <!-- 对某个时间段的任意一个属性字段查询记录 -->
-  <select id="selectWithAnyOneRequirementByTime" parameterType="model.ProductParameter" resultMap="BaseResultMap">
-  	select 
-  	<include refid="Base_Column_List" />
-  	from product_parameter
-  	where ${NAME1}=#{VALUE1}
-  	AND produce_date in 
-  		(select
-	  	produce_date
-	  	from product_parameter
-	  	where 
-	  	and produce_date BETWEEN #{produceDate1} AND #{produceDate2})
-  </select>
-  
-  
-  
-  
-  
   
   
   <!-- 按指定字段删除记录 -->

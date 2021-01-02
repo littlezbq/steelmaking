@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
-	<classPathEntry location="F:\jar package\mysql-connector-java-8.0.21\mysql-connector-java-8.0.21.jar" />
+	<classPathEntry location="F:\workspace-spring-tool-suite-4-4.8.0.RELEASE\steelmakingSYS1215\WebContent\WEB-INF\lib\mysql-connector-java-8.0.18.jar" />
 	<context id="MySQLTables" targetRuntime="MyBatis3">
     	<jdbcConnection connectionURL="jdbc:mysql://localhost:3306/steelmaking?serverTimezone=GMT%2B8&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8" 
     				driverClass="com.mysql.cj.jdbc.Driver" 
